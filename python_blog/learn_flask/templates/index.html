@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Doro的博客 - 首页{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">欢迎来到Doro的博客</h1>
+    <p class="lead">在这里你可以找到各种技术文章和教程。</p>
+    <hr class="my-4">
+    
+    <!-- 显示所有文章 -->
+    {% for post in posts %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h2 class="card-title">
+                <a href="#" class="text-decoration-none">{{ post['title'] }}</a>
+            </h2>
+            <p class="card-text">{{ post['content'][:100] }}...</p>
+            <small class="text-muted">发布时间: {{ post['timestamp'] }}</small>
+        </div>
+    </div>
+    {% endfor %}
+    
+    <a class="btn btn-primary btn-lg" href="https://www.baidu.com" role="button" target="_blank">问度娘</a>
+</div>
+{% endblock %}
